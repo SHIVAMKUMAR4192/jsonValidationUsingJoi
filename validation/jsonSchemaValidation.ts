@@ -11,7 +11,7 @@
 
 
 import Ajv from 'ajv';
-import Joi from 'joi';
+// import Joi from 'joi';
 
 const ajv = new Ajv()
 
@@ -22,8 +22,12 @@ export const errorResponse = (schemaErrors: any) => {
             message: error.message
         }
     })
-    console.log (`Error for validating a schema with errors: ${JSON.stringify(errors)}`)
-    throw new Error( JSON.stringify(errors))
+    // console.log (`Error for validating a schema with errors: ${JSON.stringify(errors)}`)
+    // throw new Error( JSON.stringify(errors))
+
+    const errorMessage = 'Error for validating a schema with errors: ' + JSON.stringify(errors);
+    console.log(errorMessage);
+    throw new Error(errorMessage);
 }
 
 export const validateDateAgainstSchema = (schema:any, data:any) =>{
@@ -32,8 +36,10 @@ export const validateDateAgainstSchema = (schema:any, data:any) =>{
       const valid =  ajv.validate(schema, data)
 
       if (!valid) {
-        errorResponse(ajv.errors)
+        errorResponse(ajv.errors);
+        return false;
     }
+    return true;
     } catch (error) {
         throw error;
     }

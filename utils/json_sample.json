@@ -1,0 +1,25 @@
+{
+    "schema": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+            "first_name"
+        ],
+        "properties": {
+            "first_name": {
+                "type": "string"
+            },
+            "last_name": {
+                "type": "string"
+            },
+            "phNumber": {
+                "type": "string"
+            }
+        }
+    },
+    "value": {
+        "first_name": "johndoe",
+        "last_name": "doe",
+        "phNumber": "2345678945"
+    }
+}

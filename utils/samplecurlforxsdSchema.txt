@@ -1,0 +1,6 @@
+curl --location 'http://localhost:3001/api/validate-xml' \
+--header 'Content-Type: application/json' \
+--data '{
+    "xsdSchema": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><xs:element name=\"user\"><xs:complexType><xs:all><xs:element name=\"id\" type=\"xs:integer\" /><xs:element name=\"first_name\"><xs:simpleType><xs:restriction base=\"xs:string\"><xs:minLength value=\"2\" /></xs:restriction></xs:simpleType></xs:element><xs:element name=\"last_name\"><xs:simpleType><xs:restriction base=\"xs:string\"><xs:minLength value=\"2\" /></xs:restriction></xs:simpleType></xs:element><xs:element name=\"phNumber\" type=\"xs:string\" /><xs:element name=\"created_at\" type=\"xs:dateTime\" /></xs:all></xs:complexType></xs:element></xs:schema>",
+    "xmlData": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><user><id>1</id><first_name>John</first_name><last_name>Doe</last_name><phNumber>123-456-7890</phNumber><created_at>2023-10-30T08:00:00Z</created_at></user>"
+}'
